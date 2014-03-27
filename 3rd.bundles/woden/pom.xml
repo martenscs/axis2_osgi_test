@@ -1,0 +1,78 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+
+    <parent>
+        <groupId>org.apache.axis2.3rd.bundles</groupId>
+        <artifactId>3rd.bundles</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>woden</artifactId>
+    <packaging>bundle</packaging>
+    <name>woden</name>
+    <version>1.0M8</version>
+    <description>
+         This bundle will represent Woden
+    </description>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.apache.woden</groupId>
+            <artifactId>woden-api</artifactId>
+            <version>1.0M8</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.codehaus.woodstox</groupId>
+                    <artifactId>wstx-asl</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.woden</groupId>
+            <artifactId>woden-impl-dom</artifactId>
+            <version>1.0M8</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.codehaus.woodstox</groupId>
+                    <artifactId>wstx-asl</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>1.4.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-Version>1.0.M8</Bundle-Version>
+                        <Bundle-Name>${pom.artifactId}</Bundle-Name>
+                        <Bundle-Vendor>Apache Org</Bundle-Vendor>
+                        <Bundle-Description>OSGi Bundle for Woden</Bundle-Description>
+                        <Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
+                        <Export-Package>
+                            org.apache.woden.*;-split-package:=merge-first
+                        </Export-Package>
+                        <Import-Package>
+                            !javax.xml.namespace,
+                            !org.apache.woden.*,
+                            *;resolution:=optional
+                        </Import-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>

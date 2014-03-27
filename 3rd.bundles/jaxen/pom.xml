@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+
+   <parent>
+        <groupId>org.apache.axis2.3rd.bundles</groupId>
+        <artifactId>3rd.bundles</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>jaxen</artifactId>
+    <packaging>bundle</packaging>
+    <name>jaxen</name>
+    <version>1.1.1</version>
+    <description>
+        This bundle will export packages from jaxen.jar
+    </description>
+
+    <dependencies>
+        <dependency>
+                <groupId>jaxen</groupId>
+                <artifactId>jaxen</artifactId>
+                <version>1.1.1</version>
+            </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>1.4.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-Version>${pom.version}</Bundle-Version>
+                        <Bundle-Name>${pom.artifactId}</Bundle-Name>
+                        <Bundle-Vendor>Apache Org</Bundle-Vendor>
+                        <Bundle-Description>${pom.description}</Bundle-Description>
+                        <Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
+                        <Export-Package>
+                            org.jaxen.*,
+                        </Export-Package>
+                        <Import-Package>
+                            !org.jaxen.*,
+                            *;resolution:=optional
+                        </Import-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>

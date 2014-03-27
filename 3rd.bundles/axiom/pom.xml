@@ -1,0 +1,72 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+
+    <parent>
+        <groupId>org.apache.axis2.3rd.bundles</groupId>
+        <artifactId>3rd.bundles</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>axiom</artifactId>
+    <packaging>bundle</packaging>
+    <name>axiom</name>
+    <version>1.2.13</version>
+    <description>
+        This bundle will contain all axiom
+        trunk packages. This also include xml-apis, xml-resolver,
+    </description>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.apache.ws.commons.axiom</groupId>
+            <artifactId>axiom-impl</artifactId>
+            <version>${pom.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.ws.commons.axiom</groupId>
+            <artifactId>axiom-dom</artifactId>
+            <version>${pom.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>1.4.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-Version>1.0.0.${pom.version}</Bundle-Version>
+                        <Bundle-Name>${pom.artifactId}</Bundle-Name>
+                        <Bundle-Vendor>Apache Org</Bundle-Vendor>
+                        <Bundle-Description>OSGi Bundle for Axiom</Bundle-Description>
+                        <Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
+                        <Export-Package>
+                            !javax.xml.namespace,
+                            org.apache.axiom.*;-split-package:=merge-first,
+                        </Export-Package>
+                        <Import-Package>
+                            !org.apache.axiom.*,
+                            org.xml.sax.*,
+                            org.w3c.dom.*,
+                            javax.xml.stream,
+                            javax.xml.parsers,
+                            javax.xml.validation,
+                            *;resolution:=optional
+                        </Import-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>

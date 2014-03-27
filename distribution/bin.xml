@@ -1,0 +1,42 @@
+<assembly>
+    <!--<id>bin</id>-->
+    <formats>
+        <format>zip</format>
+    </formats>
+    <includeBaseDirectory>true</includeBaseDirectory>
+
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>plugins</outputDirectory>
+            <outputFileNameMapping>
+                ${artifact.artifactId}_${artifact.version}${dashClassifier?}.${artifact.extension}
+            </outputFileNameMapping>
+            <includes>
+                <include>org.apache.axis2.osgi.test:simple.module:jar</include>
+                <include>org.apache.axis2.osgi.test:simple.version:jar</include>
+                <include>org.apache.axis2.3rd.bundles:annogen:jar</include>
+                <include>org.apache.axis2.3rd.bundles:ant:jar</include>
+                <include>org.apache.axis2.3rd.bundles:axiom:jar</include>
+                <include>org.apache.axis2.3rd.bundles:commons.io:jar</include>
+                <include>org.apache.axis2.3rd.bundles:commons.codec:jar</include>
+                <include>org.apache.axis2.3rd.bundles:commons.fileupload:jar</include>
+                <include>org.apache.axis2.3rd.bundles:commons.httpclient:jar</include>
+                <include>org.apache.axis2.3rd.bundles:httpcore:jar</include>
+                <include>org.apache.axis2.3rd.bundles:wsdl4j:jar</include>
+                <include>org.apache.axis2.3rd.bundles:wstx-asl:jar</include>
+                <include>org.apache.axis2.3rd.bundles:xml-apis:jar</include>
+                <include>org.apache.axis2.3rd.bundles:woden:jar</include>
+                <include>org.apache.axis2.3rd.bundles:jaxen:jar</include>
+                <include>org.apache.axis2.3rd.bundles:dom4j:jar</include>
+                <!--others-->
+                <include>org.apache.geronimo.specs:geronimo-stax-api_1.0_spec:jar</include>
+                <include>org.apache.geronimo.specs:geronimo-ws-metadata_2.0_spec:jar</include>
+                <include>org.apache.ws.commons.schema:XmlSchema:jar</include>
+                <include>org.apache.neethi:neethi:jar</include>
+                <include>org.apache.geronimo.specs:geronimo-javamail_1.4_spec:jar</include>
+                <include>org.apache.geronimo.specs:geronimo-activation_1.1_spec:jar</include>
+                <include>org.apache.axis2:org.apache.axis2.osgi:jar</include>
+            </includes>
+        </dependencySet>
+    </dependencySets>
+</assembly>

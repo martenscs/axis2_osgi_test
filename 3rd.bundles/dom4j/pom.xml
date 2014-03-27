@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+
+   <parent>
+        <groupId>org.apache.axis2.3rd.bundles</groupId>
+        <artifactId>3rd.bundles</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>dom4j</artifactId>
+    <packaging>bundle</packaging>
+    <name>dom4j</name>
+    <version>1.6.1</version>
+    <description>
+        This bundle will export packages from dom4j.jar
+    </description>
+
+    <dependencies>
+        <dependency>
+                <groupId>dom4j</groupId>
+                <artifactId>dom4j</artifactId>
+                <version>1.6.1</version>
+            </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>1.4.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-Version>${pom.version}</Bundle-Version>
+                        <Bundle-Name>${pom.artifactId}</Bundle-Name>
+                        <Bundle-Vendor>Apache Org</Bundle-Vendor>
+                        <Bundle-Description>${pom.description}</Bundle-Description>
+                        <Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
+                        <Export-Package>
+                            org.dom4j.*,
+                        </Export-Package>
+                        <Import-Package>
+                            !org.dom4j.*,
+                            *;resolution:=optional
+                        </Import-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>
